@@ -1,0 +1,288 @@
+/*
+* Licensed under the Apache License, Version 2.0 (the "License");
+* you may not use this file except in compliance with the License.
+* You may obtain a copy of the License at
+*
+* http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+*/
+
+/**
+ * Write your model definitions here
+ */
+namespace org1.example.com.model
+
+/**
+* # enums + concepts defined
+*/
+
+enum Gender {
+o Male
+o Female
+o Other
+}
+enum Licensetypes{
+o Rto
+o permit
+o Construction
+o Shop
+o pet
+o Gun
+}
+
+enum LicenseOrganizationtype{
+o Rto
+o permit
+o Construction
+o Shop
+o pet
+o Gun
+}
+
+enum caseCondition{
+o Low
+o Medium
+o Serious
+}
+
+enum SuspensionOrRevocation{
+o Suspension
+o Revocation 
+}
+
+concept TypeOfCase {
+o String Description
+o Integer fine
+}
+
+enum Currency{
+o Dollar
+o Rupee
+o Cent
+}
+
+enum Performance{
+o Worst
+o Average
+o Excellent
+}
+
+enum Result{
+o pass
+o fail
+}
+
+
+/**
+* # asset defined
+*/
+asset License identified by LicenseId{ 
+o String LicenseId
+o String name
+o Long MobileNumber
+o String BloodGroup
+o Gender gender
+o DateTime DateofBirth
+o String Nationality default="INDIA"
+
+o String State
+o String city
+o String street
+o Integer doorno
+o Long Zipcode 
+o Licensetypes Type
+o DateTime ExpiryDate
+o Boolean IsApplicationAccepted optional
+o Boolean IsLicenseUpdated optional
+o Boolean IsLicenseRenewed optional
+
+o String DocType 
+o String DocId 
+o Double ApplicationFeePaid 
+o Currency Used 
+o Performance test1_perf optional
+o Integer test1_score range=[1,10] optional
+o Result test1_res optional
+o Performance test2_perf optional
+o Integer test2_score range=[1,10] optional
+o Result test2_res optional
+o Performance test3_perf optional
+o Integer test3_score range=[1,10] optional
+o Result test3_res optional
+
+o DateTime LicenseIssuedTimeStamp optional
+o DateTime LicenseUpdatedTime optional
+o DateTime timeOfFilingTheCase optional
+o TypeOfCase caseType optional
+o caseCondition condition optional
+o SuspensionOrRevocation punishmentType optional
+o Integer NoOfDaysSuspended optional
+o DateTime TimeOfSuspensionAndRevocation optional
+
+--> LicenseHolder LH
+}
+
+/**
+  * # Participants defined
+  */
+
+participant LicenseOrganization identified by LicenseOrgID {
+o String LicenseOrgID
+o LicenseOrganizationtype Type
+o String Nationality default="INDIA"
+o String Location
+o String username
+o String password
+}
+
+participant LicenseHolder identified by LicenseHolderId{
+  o String LicenseHolderId
+  o String LicenseHolderName
+  o String username
+  o String password
+}
+
+participant RuleViolationDept identified by DeptId{
+o String DeptId
+o String DeptName default="Police"
+o String username
+o String password
+}
+
+/**
+* # Transactions
+*/
+
+abstract transaction trackLicense {
+o String LicenseId
+}
+
+
+
+transaction applyForLicense{
+o String LicenseId 
+o DateTime ExpiryDate
+o String name
+o Long MobileNumber
+o String BloodGroup
+o Gender gender
+o DateTime DateofBirth
+o String Nationality default="INDIA"
+o String State
+o String city
+o String street
+o Integer doorno
+o Long Zipcode
+o Licensetypes Type
+o String DocType
+o String DocId
+o Double ApplicationFeePaid
+o Currency Used
+--> LicenseHolder LH
+}
+
+transaction applicationAcceptance extends trackLicense{
+  --> LicenseOrganization org
+  o Boolean IsApplicationAccepted 
+}
+
+transaction postWrittenTestDetail extends trackLicense{
+--> LicenseOrganization org
+o Performance test1_perf 
+o Integer test1_score range=[0,10]
+o Result test1_res 
+}
+
+transaction postSimulatorTestDetail extends trackLicense{
+--> LicenseOrganization org
+o Performance test2_perf 
+o Integer test2_score range=[0,10] 
+o Result test2_res
+}
+
+transaction postOnRoadTestDetail extends trackLicense{
+--> LicenseOrganization org
+o Performance test3_perf 
+o Integer test3_score range=[0,10] 
+o Result test3_res 
+}
+
+transaction supplyLicense extends trackLicense{
+--> LicenseOrganization org
+o DateTime LicenseIssuedTimeStamp 
+}
+
+transaction applyForUpdateLicense extends trackLicense{
+--> LicenseHolder LH
+o String name
+o Long MobileNumber
+o String State
+o String city
+o String street
+o Integer doorno
+o Long Zipcode
+
+}
+
+transaction isLicenseUpdated  extends trackLicense{
+--> LicenseOrganization org
+o Boolean IsLicenseUpdated
+o DateTime LicenseUpdatedTime
+}
+
+transaction applyRenewLicense extends trackLicense{
+--> LicenseHolder LH
+}
+
+transaction isLicenseRenewed extends trackLicense {
+  --> LicenseOrganization org
+  o Boolean IsLicenseRenewed
+}
+
+transaction fileACase extends trackLicense {
+--> RuleViolationDept caseFiler
+o DateTime timeOfFilingTheCase
+o TypeOfCase caseType
+o caseCondition condition
+}
+
+transaction postSuspensionOrRevocation extends trackLicense{
+--> RuleViolationDept executor
+o caseCondition condition
+o SuspensionOrRevocation punishmentType
+o Integer NoOfDaysSuspended optional
+o DateTime TimeOfSuspensionAndRevocation
+}
+
+event FileACase{
+--> RuleViolationDept caseFiler
+o DateTime timeOfFilingTheCase
+o TypeOfCase caseType
+o caseCondition condition 
+}
+
+event PostSuspensionOrRevocation{
+--> RuleViolationDept executor
+o caseCondition condition
+o SuspensionOrRevocation punishmentType
+o Integer NoOfDaysSuspended optional
+o DateTime TimeOfSuspensionAndRevocation
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

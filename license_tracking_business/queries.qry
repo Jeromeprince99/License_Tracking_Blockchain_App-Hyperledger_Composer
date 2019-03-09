@@ -1,0 +1,53 @@
+
+
+
+query viewParticularLicenseApplication
+{ 
+description: " View the created license " 
+statement: SELECT org.hyperledger.composer.system.HistorianRecord
+          WHERE (transactionType == 'AddAsset' )
+
+}
+
+query viewHistoryOfAllTransactionsInALicense{
+  description: " Get all the transactions happened in a license"
+  statement: SELECT org1.example.com.model.trackLicense WHERE (LicenseId == _$LicenseId)
+}
+
+query viewParticularRenewedLicense
+{ 
+description: " View the history of particular renewed license " 
+statement: SELECT org1.example.com.model.applyRenewLicense WHERE (LicenseId == _$LicenseId ) 
+
+}
+
+query viewParticularUpdatedLicense 
+{ 
+description: " View the hstory of particular updated license " 
+statement: SELECT org1.example.com.model.applyForUpdateLicense WHERE (LicenseId == _$LicenseId ) 
+
+}
+
+query viewHistoryOfCaseFiledOnAParticularLicense
+{ 
+description: "choose a specific commodity " 
+statement: SELECT org1.example.com.model.fileACase WHERE (LicenseId == _$LicenseId ) 
+ORDER BY [timeOfFilingTheCase]
+}
+
+query viewHistoryOfSuspensionOrRevocationOnAParticularLicense
+{ 
+description: "choose a specific commodity " 
+statement: SELECT org1.example.com.model.postSuspensionOrRevocation WHERE (LicenseId == _$LicenseId ) 
+ORDER BY [TimeOfSuspensionAndRevocation]
+}
+
+
+
+
+
+
+
+
+
+
