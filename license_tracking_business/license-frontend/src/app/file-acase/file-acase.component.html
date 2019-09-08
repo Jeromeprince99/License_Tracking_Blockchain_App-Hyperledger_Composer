@@ -1,0 +1,53 @@
+<div class="file-a-case-placeholder">
+    <div class="form-header-placeholder">
+      <div class="form-header">
+         File Case
+      </div>
+    </div>
+    <div class="form-fields-placeholder">
+      <div class="field">
+        <label>Enter License ID</label>
+        <div >
+            <input  type="text" [(ngModel)]="license_id">
+        </div>
+      </div>
+      <div class="field">
+          <label>Case Filer ID</label>
+          <div>
+            <input type="text" [(ngModel)]="caseFiler">
+          </div>
+      </div>
+      <div class="field">
+        <label>Case Description</label>
+        <div>
+          <textarea [(ngModel)]="Description"></textarea>
+        </div>
+    </div>
+    <div class="field">
+        <label>Fine</label>
+        <div>
+        <input type="number" [(ngModel)]="fine">
+        </div>
+    </div>
+    <div class="field">
+            <label>Severity</label>
+            <div>
+              <select  [(ngModel)]="condition" style="width: 225px;
+              height: 50px;
+              border-radius: 5px;
+              border-color: #36cbd2;
+              background-color: white;
+              padding: 5px;
+              cursor: pointer;">
+                <option>Low</option>
+                <option>Medium</option>
+                <option>Serious</option>
+              </select>
+            </div>
+        </div>
+    </div>
+    <div class="submit-placeholder">
+      <span style="cursor: pointer; " class="btn btn-primary" (click)="submit();"> Submit </span>
+    </div>
+
+</div>

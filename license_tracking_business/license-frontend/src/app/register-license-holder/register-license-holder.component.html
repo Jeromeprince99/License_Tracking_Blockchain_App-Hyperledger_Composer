@@ -1,0 +1,38 @@
+<div class="register-license-holder-form-placeholder">
+
+    <div class="form-header-placeholder">
+      <div class="form-header">
+         Register License Holder
+      </div>
+    </div>
+    <div class="form-fields-placeholder">
+      <div class="field">
+        <label>Enter License Holder ID</label>
+        <div style="padding-left:80px;">
+            <input  type="text" [(ngModel)]="license_id">
+        </div>
+      </div>
+      <div class="field">
+          <label>Enter License Holder name</label>
+          <div style="padding-left:55px;">
+            <input type="text" [(ngModel)]="license_holder_name">
+          </div>
+      </div>
+      <div class="field">
+          <label>Enter username</label>
+          <div style="padding-left:150px;">
+            <input type="text" [(ngModel)]="username">
+          </div>
+      </div>
+      <div class="field">
+          <label>Enter password</label>
+          <div style="padding-left:150px;">
+            <input type="password" [(ngModel)]="password">
+          </div>
+      </div>
+    </div>
+    <div class="submit-placeholder">
+      <span style="cursor: pointer; " class="btn btn-primary" (click)="submit();"> Register </span>
+    </div>
+   
+</div>

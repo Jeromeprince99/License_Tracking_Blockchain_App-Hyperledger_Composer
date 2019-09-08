@@ -1,6 +1,4 @@
 
-
-
 query viewParticularLicenseApplication
 { 
 description: " View the created license " 
@@ -41,13 +39,3 @@ description: "choose a specific commodity "
 statement: SELECT org1.example.com.model.postSuspensionOrRevocation WHERE (LicenseId == _$LicenseId ) 
 ORDER BY [TimeOfSuspensionAndRevocation]
 }
-
-
-
-
-
-
-
-
-
-

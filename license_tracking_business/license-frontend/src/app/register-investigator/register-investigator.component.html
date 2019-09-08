@@ -1,0 +1,39 @@
+<div class="register-investigator-placeholder">
+        <div class="form-header-placeholder">
+          <div class="form-header">
+             Register as a Rule Violation Investigation Department
+          </div>
+        </div>
+        <div class="form-fields-placeholder">
+          <div class="field">
+            <label>Enter Department ID</label>
+            <div >
+                <input  type="text" [(ngModel)]="dept_id">
+            </div>
+          </div>
+          <div class="field">
+              <label>Enter Department Name</label>
+              <div>
+                <input type="text" [(ngModel)]="dept_name">
+              </div>
+          </div>
+          <div class="field">
+              <label>Enter username</label>
+              <div >
+                <input type="text" [(ngModel)]="username">
+              </div>
+          </div>
+          <div class="field">
+              <label>Enter password</label>
+              <div >
+                <input type="password" [(ngModel)]="password">
+              </div>
+          </div>
+        </div>
+        <div class="submit-placeholder">
+          <span style="cursor: pointer; " class="btn btn-primary" (click)="submit();"> Register </span>
+        </div>
+       
+  <div routerLink="../File-a-case">
+  </div>
+</div>

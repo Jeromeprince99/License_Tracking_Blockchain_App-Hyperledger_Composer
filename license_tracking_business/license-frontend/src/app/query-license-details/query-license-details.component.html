@@ -1,0 +1,72 @@
+<div class="query-placeholder">
+  <div *ngIf="!searchSuccess">
+    <div class="header">
+      Enter license ID to view all transactions
+    </div>
+    <div class="input">
+      <input type="text" [(ngModel)]="SearchQuery">
+    </div>
+    <div class="search-button-placeholder">
+      <div class="search-button">
+        <span style="width: 100px;
+        height: 50px; display: block;" (click)="search();">
+          Search
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="searchSuccess">
+    <div class="header">
+      All transaction details
+    </div>
+
+
+   
+    <div *ngIf="applicationData">
+        <h3 style="text-align: center; font-size:20px;">License applied transaction detail</h3>
+        <table id="transactions">
+          <tr>
+            <th>Applied on</th>
+            <th>License Type</th>
+          </tr>
+          <tr style="  padding: 10px 30px 10px 30px;">           
+              <td>
+                  <span class="date-time-placeholder">
+                      {{applicationData.timestamp}}
+                  </span>
+              </td>
+              <td>
+                  <span class="txn-details-placeholder">
+                      {{applicationData.Type}}
+                    </span>
+              </td>
+          </tr>
+        </table>    
+    </div>
+
+     
+    <div *ngIf="caseData">
+      <h3 style="text-align: center; font-size:20px; margin-top: 20px;">Cases filed against this license</h3>
+      <table id="transactions">
+        <tr>
+          <th>Filed on</th>
+          <th>Case Description</th>
+          <th>Condition</th>
+          <th>Fine</th>
+        </tr>
+        <tr *ngFor="let case of caseData;" style="  padding: 10px 30px 10px 30px;">             
+            
+          <td class="date-time-placeholder">{{case.timestamp}}</td>
+      
+          <td class="txn-details-placeholder">{{case.caseType.Description}}</td>
+      
+          <td class="txn-details-placeholder">{{case.condition}}</td>
+
+          <td class="txn-details-placeholder">{{case.caseType.fine}}</td>
+        </tr>
+      
+      </table>    
+    </div>
+</div>
+</div>

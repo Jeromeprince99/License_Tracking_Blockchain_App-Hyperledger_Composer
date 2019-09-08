@@ -1,0 +1,158 @@
+<div class="license-apply-form-placeholder">
+  <div *ngIf="!success">
+    <div class="form-header-placeholder">
+      <div class="form-header">
+          Apply For License
+      </div>
+    </div>
+    <div class="form-fields-placeholder">
+        <div class="field">
+          <label>Enter License ID</label>
+          <div >
+              <input  type="text" [(ngModel)]="LicenseId">
+          </div>
+        </div>
+        <div class="field">
+            <label>Enter Expiry Date</label>
+            <div >
+              <input type="date" [(ngModel)]="ExpiryDate">
+            </div>
+        </div>
+        <div class="field">
+            <label>Enter Name</label>
+            <div >
+              <input type="text" [(ngModel)]="name">
+            </div>
+        </div>
+        <div class="field">
+            <label>Enter Mobile Number</label>
+            <div >
+              <input type="number" [(ngModel)]="MobileNumber">
+            </div>
+        </div>
+
+        <div class="field">
+            <label>Enter BloodGroup</label>
+            <div >
+              <input type="text" [(ngModel)]=" BloodGroup">
+            </div>
+        </div>
+
+        <div class="field">
+            <label>Enter gender</label>
+            <div >
+              <select  [(ngModel)]="gender" style="width: 225px;
+              height: 50px;
+              border-radius: 5px;
+              border-color: #36cbd2;
+              background-color: white;
+              padding: 5px;
+              cursor: pointer;">
+                <option>Male</option>
+                <option>Female</option>
+                <option>Transgender</option>
+              </select>
+            </div>
+        </div>
+        <div class="field">
+            <label>Enter DateofBirth</label>
+            <div >
+              <input type="date" [(ngModel)]="DateofBirth">
+            </div>
+        </div>
+        <div class="field">
+            <label>Enter Nationality</label>
+            <div >
+              <input type="text" [(ngModel)]="Nationality">
+            </div>
+        </div>
+        <div class="field">
+            <label>Enter State</label>
+            <div >
+              <input type="text" [(ngModel)]="State">
+            </div>
+        </div>
+        <div class="field">
+            <label>Enter City</label>
+            <div >
+              <input type="text" [(ngModel)]="city">
+            </div>
+        </div>
+        <div class="field">
+            <label>Enter Street</label>
+            <div >
+              <input type="text" [(ngModel)]="street">
+            </div>
+        </div>
+        <div class="field">
+            <label>Enter Doorno</label>
+            <div >
+              <input type="number" [(ngModel)]="doorno">
+            </div>
+        </div>
+        <div class="field">
+            <label>Enter Zipcode</label>
+            <div >
+              <input type="number" [(ngModel)]="Zipcode">
+            </div>
+        </div>
+        <div class="field">
+            <label>Select License Type</label>
+            <div >
+              <select  [(ngModel)]="Type" style="width: 225px;
+              height: 50px;
+              border-radius: 5px;
+              border-color: #36cbd2;
+              background-color: white;
+              padding: 5px;
+              cursor: pointer;">
+                <option>Rto</option>
+                <option>permit</option>
+                <option>Construction</option>
+                <option>Shop</option>
+                <option>pet</option>
+                <option>Gun</option>
+              </select>
+            </div>
+        </div>
+        <div class="field">
+            <label>Enter DocType</label>
+            <div >
+              <input type="text" [(ngModel)]="DocType">
+            </div>
+        </div>
+        <div class="field">
+            <label>Enter DocId</label>
+            <div >
+              <input type="text" [(ngModel)]="DocId">
+            </div>
+        </div>
+        <div class="field">
+            <label>Application Fee</label>
+            <div >
+              <span> 10 </span>
+            </div>
+        </div>
+        
+      <div class="field">
+        <label>Currency</label>
+        <div >
+          <span>Dollar</span>
+        </div>
+      </div>
+      <div class="field">
+          <label>Enter License Holder Id</label>
+          <div >
+            <input type="text" [(ngModel)]="LH">
+          </div>
+      </div>
+      </div>
+
+      <div class="submit-placeholder">
+        <span style="cursor: pointer; " class="btn btn-primary" (click)="submit();"> Submit </span>
+      </div>
+      </div>
+      <div *ngIf="success">
+        <span style="color:#36cbd2; font-size: 30px; width:100px;display: block; margin: 0px auto;">Success</span>
+      </div>
+</div>

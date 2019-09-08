@@ -1,0 +1,84 @@
+.query-placeholder{
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 40px auto;
+    padding: 40px;
+    max-width: 80vw;
+    box-shadow: 0px 5px 15px 2px rgba(54, 203, 210, 0.3);
+    #transactions {
+        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+      }
+      
+      #transactions td, #transactions th {
+       
+        padding: 8px;
+      }
+      
+      #transactions tr:nth-child(even){background-color: #f2f2f2;}
+      
+      #transactions tr:hover {background-color: #ddd;}
+      
+      #transactions th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #36cbd2;
+        color: white;
+      }
+    .header{
+        background-color: azure;
+        border-bottom: 4px solid #36cbd2;
+        padding: 10px;
+        text-align: center;
+        margin-bottom: 20px
+    }
+    .input{
+        margin: 50px auto;
+        display: table;
+          input{
+            height: 60px;
+            width: 400px;
+            padding: 10px;
+            color: rgba(0,0,0,0.5);
+          }
+            
+    }
+    .search-button-placeholder{
+        margin: 0px auto 50px auto;
+        width: 100px;       
+  
+        .search-button{
+            background-color: #36cbd2;
+            border: 1px solid #36cbd2;
+            font-size: 20px;
+            font-weight: bold;
+            width: 100px; height: 50px;
+            color: white;
+            line-height: 50px;
+            border-radius: 5px;
+    padding: 0px 18px;
+    cursor:pointer;     
+        }
+        .search-button:hover{
+            background-color: azure;
+            color: rgba(0,0,0,0.5);
+        }
+    }
+   
+      
+        .date-time-placeholder{
+            font-size: 20px;
+            color: rgba(0,0,0,0.5);
+            padding: 10px;
+        }
+        .txn-details-placeholder{
+            font-size: 20px;
+            color: rgba(0,0,0,0.5);
+            padding: 10px;
+            
+        }
+}
